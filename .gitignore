@@ -1,0 +1,5 @@
+# sbt files
+target/
+
+# IntelliJ files
+.idea
