@@ -3,3 +3,11 @@ target/
 
 # IntelliJ files
 .idea
+
+# vscode
+.vscode
+
+# Metals
+.bloop
+.metals
+metals.sbt
