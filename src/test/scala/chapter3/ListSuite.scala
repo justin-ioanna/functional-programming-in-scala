@@ -67,41 +67,41 @@ class ListSuite extends AnyFunSuite {
     assert(init(Nil) == Nil)
   }
 
-  // test("length: length of 5 element list should be 5") {
-  //   assert(length(List(1, 2, 3, 4, 5)) == 5)
-  // }
+  test("length: length of 5 element list should be 5") {
+    assert(length(List(1, 2, 3, 4, 5)) == 5)
+  }
 
-  // test("foldLeft: sum elements of list with foldLeft") {
-  //   assert(foldLeft(List(1, 2, 3, 4, 5), 0)(_ + _) == 15)
-  // }
+  test("foldLeft: sum elements of list with foldLeft") {
+    assert(foldLeft(List(1, 2, 3, 4, 5), 0)(_ + _) == 15)
+  }
 
-  // test("sumLeft: sum elements of list with foldLeft") {
-  //   assert(sumLeft(List(1, 2, 3, 4, 5)) == 15)
-  // }
+  test("sumLeft: sum elements of list with foldLeft") {
+    assert(sumLeft(List(1, 2, 3, 4, 5)) == 15)
+  }
 
-  // test("productLeft: product elements of list with foldLeft") {
-  //   assert(productLeft(List(1, 2, 3, 4, 5)) == 120)
-  // }
+  test("productLeft: product elements of list with foldLeft") {
+    assert(productLeft(List(1, 2, 3, 4, 5)) == 120)
+  }
 
-  // test("lengthLeft: length of list with foldLeft") {
-  //   assert(lengthLeft(List(1, 2, 3, 4, 5)) == 5)
-  // }
+  test("lengthLeft: length of list with foldLeft") {
+    assert(lengthLeft(List(1, 2, 3, 4, 5)) == 5)
+  }
 
-  // test("reverse: reverse list using foldLeft") {
-  //   assert(reverse(List(1, 2, 3, 4, 5)) == List(5, 4, 3, 2, 1))
-  // }
+  test("reverseLeft: reverse list using foldLeft") {
+    assert(reverseLeft(List(1, 2, 3, 4, 5)) == List(5, 4, 3, 2, 1))
+  }
 
-  // test("reverse: reverse empty list should return empty list") {
-  //   assert(reverse(List()) == List())
-  // }
+  test("reverseLeft: reverse empty list should return empty list") {
+    assert(reverseLeft(List()) == List())
+  }
 
-  // test("append: should add second list to end of first") {
-  //   assert(append(List(1, 2, 3), List(4, 5, 6)) == List(1, 2, 3, 4, 5, 6))
-  // }
+  test("append: should add second list to end of first") {
+    assert(append(List(1, 2, 3), List(4, 5, 6)) == List(1, 2, 3, 4, 5, 6))
+  }
 
-  // test("concatenate: should concatenate a list of lists") {
-  //   assert(concatenate(List(List(1, 2), List(3, 4), List(5, 6))) == List(1, 2, 3, 4, 5, 6))
-  // }
+  test("concatenate: should concatenate a list of lists") {
+    assert(concatenate(List(List(1, 2), List(3, 4), List(5, 6))) == List(1, 2, 3, 4, 5, 6))
+  }
 
   // test("add1: should add 1 to each element in the list") {
   //   assert(add1(List(1, 2, 3)) == List(2, 3, 4))
