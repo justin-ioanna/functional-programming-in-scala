@@ -103,28 +103,36 @@ class ListSuite extends AnyFunSuite {
     assert(concatenate(List(List(1, 2), List(3, 4), List(5, 6))) == List(1, 2, 3, 4, 5, 6))
   }
 
-  // test("add1: should add 1 to each element in the list") {
-  //   assert(add1(List(1, 2, 3)) == List(2, 3, 4))
-  // }
+  test("add1: should add 1 to each element in the list") {
+    assert(add1(List(1, 2, 3)) == List(2, 3, 4))
+  }
 
-  // test("convertToString: should convert elements in list from Double to String") {
-  //   assert(convertToString(List(1.0, 2.0, 3.0)) == List("1.0", "2.0", "3.0"))
-  // }
+  test("doubleToString: should convert elements in list from Double to String") {
+    assert(doubleToString(List(1.0, 2.0, 3.0)) == List("1.0", "2.0", "3.0"))
+  }
 
-  // test("map: should apply a function to each element in a list") {
-  //   assert(map(List(1, 2, 3))(x => 2 * x) == List(2, 4, 6))
-  // }
+  test("map: should apply a function to each element in a list") {
+    assert(map(List(1, 2, 3))(x => 2 * x) == List(2, 4, 6))
+  }
 
-  // test("filter: should remove elements from list based on predicate") {
-  //   assert(filter(List(5, 4, 1, 2, 3))(x => x > 2) == List(5, 4, 3))
-  // }
+  test("filter: should remove elements from list based on predicate") {
+    assert(filter(List(5, 4, 1, 2, 3))(x => x > 2) == List(5, 4, 3))
+  }
 
-  // test("flatmap: should map then flatten") {
-  //   assert(flatMap(List(1, 2, 3))(x => List(x, x)) == List(1, 1, 2, 2, 3, 3))
-  // }
+  test("flatmap: should map then flatten") {
+    assert(flatMap(List(1, 2, 3))(x => List(x, x)) == List(1, 1, 2, 2, 3, 3))
+  }
 
-  // test("filterViaFlatMap: should filter list") {
-  //   assert(filterViaFlatMap(List(5, 4, 1, 2, 3))(x => x > 2) == List(5, 4, 3))
-  // }
+  test("filterViaFlatMap: should filter list") {
+    assert(filterViaFlatMap(List(5, 4, 1, 2, 3))(x => x > 2) == List(5, 4, 3))
+  }
+
+  test("zipAdd: should add corresponding elements of two lists") {
+    assert(zipAdd(List(1, 2, 3), List(4, 5, 6)) == List(5, 7, 9))
+  }
+
+  test("zipWith: should add corresponding elements of two lists") {
+    assert(zipWith(List(1, 2, 3), List(4, 5, 6))((a, b) => a + b) == List(5, 7, 9))
+  }
 
 }

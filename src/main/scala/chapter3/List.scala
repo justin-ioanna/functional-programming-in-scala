@@ -117,14 +117,65 @@ object List {
    */
   def reverseLeft[A](as: List[A]): List[A] = foldLeft(as, Nil: List[A])({ case (acc, x) => Cons(x, acc) })
 
+  def foldRightViaFoldLeft[A,B](l: List[A], z: B)(f: (A,B) => B): B =
+    foldLeft(reverse(l), z)((b,a) => f(a,b))
+
   /**
    * Exercise 3.14
    */
-  def append[A](l1: List[A], l2: List[A]): List[A] = foldRight(l1, l2)(Cons(_, _))
+  def append[A](l1: List[A], l2: List[A]): List[A] = foldRightViaFoldLeft(l1, l2)(Cons(_, _))
 
   /**
    * Exercise 3.15
    */
-  def concatenate[A](l: List[List[A]]): List[A] = foldRight(l, Nil: List[A])({ case (x, acc) => append(x, acc) })
+  def concatenate[A](l: List[List[A]]): List[A] = foldRightViaFoldLeft(l, Nil: List[A])({ case (x, acc) => append(x, acc) })
+
+  /**
+   * Exercise 3.16
+   */
+  def add1(l: List[Int]): List[Int] = foldRightViaFoldLeft(l, Nil: List[Int])({ case (x, acc) => Cons(x + 1, acc) })
+
+  /**
+   * Exercise 3.17
+   */
+  def doubleToString(l: List[Double]): List[String] = foldRightViaFoldLeft(l, Nil: List[String])({ case (x, acc) => Cons(x.toString, acc) })
+
+  /**
+   * Exercise 3.18
+   */
+  def map[A,B](l: List[A])(f: A => B): List[B] = foldRightViaFoldLeft(l, Nil: List[B])({ case (x, acc) => Cons(f(x), acc) })
+
+  /**
+   * Exercise 3.19
+   */
+  def filter[A](as: List[A])(f: A => Boolean): List[A] = foldRightViaFoldLeft(as, Nil: List[A])({ case (x, acc) => if (f(x)) Cons(x, acc) else acc })
+
+  /**
+   * Exercise 3.20
+   */
+  def flatMap[A,B](as: List[A])(f: A => List[B]): List[B] = concatenate(map(as)(f))
+
+  /**
+   * Exercise 3.21
+   */
+  def filterViaFlatMap[A](as: List[A])(f: A => Boolean): List[A] = flatMap(as)(x => if (f(x)) List(x) else Nil)
+
+  /**
+   * Exercise 3.22
+   */
+  def zipAdd(l1: List[Int], l2: List[Int]): List[Int] = (l1, l2) match {
+    case (Nil, _) => Nil
+    case (_, Nil) => Nil
+    case (Cons(a, as), Cons(b, bs)) => Cons(a + b, zipAdd(as, bs))
+  }
+
+  /**
+   * Exercise 3.23
+   */
+  def zipWith[A,B,C](l1: List[A], l2: List[B])(f: (A, B) => C): List[C] = (l1, l2) match {
+    case (Nil, _) => Nil
+    case (_, Nil) => Nil
+    case (Cons(a, as), Cons(b, bs)) => Cons(f(a, b), zipWith(as, bs)(f))
+  }
 
 }
